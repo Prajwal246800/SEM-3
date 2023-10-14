@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>This Is A Sample Heading</h1>
+    <p id="output">If U Click Button I Will Change</p>
+    <button id="myButton">Click Me</button>
+
+    <script>
+        // Arrays and Functions
+        var fruits = ['Apple', 'Banana', 'Orange'];
+
+        function displayFruits() {
+            for (var i = 0; i < fruits.length; i++) {
+                console.log(fruits[i]);
+            }
+        }
+
+        // Function Hoisting
+        hoistedFunction();
+
+        function hoistedFunction() {
+            console.log('This function was hoisted.');
+        }
+
+        // JavaScript Built-in Objects
+        var currentDate = new Date();
+        console.log('Current date: ' + currentDate);
+
+        // JavaScript Object
+        var person = {
+            firstName: 'John',
+            lastName: 'Doe',
+            age: 30
+        };
+        console.log('Person: ', person);
+
+        // JavaScript Object Inheritance
+        function Student(firstName, lastName, age, studentId) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.age = age;
+            this.studentId = studentId;
+        }
+
+        Student.prototype = Object.create(person);
+
+        var student1 = new Student('Alice', 'Johnson', 25, '12345');
+        console.log('Student 1: ', student1);
+
+        // DOM Manipulation
+        var outputElement = document.getElementById('output');
+        var buttonElement = document.getElementById('myButton');
+
+        buttonElement.addEventListener('click', function() {
+            outputElement.textContent = 'Button clicked!';
+            displayFruits();
+        });
+
+        // Events and Event Handling
+        buttonElement.addEventListener('mouseover', function() {
+            this.style.backgroundColor = '#0056b3';
+        });
+
+        buttonElement.addEventListener('mouseout', function() {
+            this.style.backgroundColor = '#007bff';
+        });
+    </script>
+</body>
+</html>
