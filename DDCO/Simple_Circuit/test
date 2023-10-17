@@ -1,0 +1,77 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_010C3380 .scope module, "simple3_test" "simple3_test" 2 1;
+ .timescale 0 0;
+v010CEB50_0 .var "A", 0 0;
+v010CEBA8_0 .var "B", 0 0;
+v01120FB0_0 .var "C", 0 0;
+v01120F58_0 .net "Z", 0 0, L_01121528; 1 drivers
+S_010C2A88 .scope module, "M1" "simple3" 2 5, 3 1, S_010C3380;
+ .timescale 0 0;
+L_010C3408 .functor AND 1, v010CEBA8_0, v01120FB0_0, C4<1>, C4<1>;
+L_010CEC38 .functor OR 1, v010CEB50_0, L_010C3408, C4<0>, C4<0>;
+L_010CECE0 .functor AND 1, v010CEB50_0, v010CEBA8_0, C4<1>, C4<1>;
+L_01121528 .functor OR 1, L_010CEC38, L_010CECE0, C4<0>, C4<0>;
+v010C7E80_0 .net "A", 0 0, v010CEB50_0; 1 drivers
+v010C2B10_0 .net "B", 0 0, v010CEBA8_0; 1 drivers
+v010C2B68_0 .net "C", 0 0, v01120FB0_0; 1 drivers
+v010C8950_0 .alias "Z", 0 0, v01120F58_0;
+v010C89A8_0 .net "w1", 0 0, L_010C3408; 1 drivers
+v010C8A00_0 .net "w2", 0 0, L_010CEC38; 1 drivers
+v010C8A58_0 .net "w3", 0 0, L_010CECE0; 1 drivers
+    .scope S_010C3380;
+T_0 ;
+    %set/v v010CEB50_0, 0, 1;
+    %set/v v010CEBA8_0, 0, 1;
+    %set/v v01120FB0_0, 0, 1;
+    %delay 20, 0;
+    %set/v v010CEB50_0, 0, 1;
+    %set/v v010CEBA8_0, 0, 1;
+    %set/v v01120FB0_0, 1, 1;
+    %delay 20, 0;
+    %set/v v010CEB50_0, 0, 1;
+    %set/v v010CEBA8_0, 1, 1;
+    %set/v v01120FB0_0, 0, 1;
+    %delay 20, 0;
+    %set/v v010CEB50_0, 0, 1;
+    %set/v v010CEBA8_0, 1, 1;
+    %set/v v01120FB0_0, 1, 1;
+    %delay 20, 0;
+    %set/v v010CEB50_0, 1, 1;
+    %set/v v010CEBA8_0, 0, 1;
+    %set/v v01120FB0_0, 0, 1;
+    %delay 20, 0;
+    %set/v v010CEB50_0, 1, 1;
+    %set/v v010CEBA8_0, 0, 1;
+    %set/v v01120FB0_0, 1, 1;
+    %delay 20, 0;
+    %set/v v010CEB50_0, 1, 1;
+    %set/v v010CEBA8_0, 1, 1;
+    %set/v v01120FB0_0, 0, 1;
+    %delay 20, 0;
+    %set/v v010CEB50_0, 1, 1;
+    %set/v v010CEBA8_0, 1, 1;
+    %set/v v01120FB0_0, 1, 1;
+    %end;
+    .thread T_0;
+    .scope S_010C3380;
+T_1 ;
+    %vpi_call 2 29 "$monitor", $time, " A=%b, B=%b, C=%b, Z=%b", v010CEB50_0, v010CEBA8_0, v01120FB0_0, v01120F58_0;
+    %end;
+    .thread T_1;
+    .scope S_010C3380;
+T_2 ;
+    %vpi_call 2 34 "$dumpfile", "simple3.vcd";
+    %vpi_call 2 35 "$dumpvars", 1'sb0, S_010C3380;
+    %end;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "simple_circuit3_tb.v";
+    "simple_circuit3.v";
