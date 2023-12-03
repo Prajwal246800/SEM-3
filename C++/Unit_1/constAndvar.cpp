@@ -47,28 +47,46 @@
 // }
 
 
+// #include<iostream>
+// using namespace std;
+// int main()
+// {
+//     const int a=10; //a is integer constant
+//     int b=20;
+//     const int* ptr1=&b; //ptr1 is not constant, it points to constant data
+//     // a is constant and cannot be changed
+//     // a=100;
+//     cout<<"a="<<a<<endl;
+//     // ptr1 points to constant data(b) and cannot be changed
+//     // *ptr1=200;
+//     cout<<"b="<<b<<" "<<"ptr1 points to b: "<<*ptr1<<endl;
+//     // b is not constant, therefore can be changed
+//     b=200;
+//     cout<<"b="<<b<<" "<<"ptr1 points to b: "<<*ptr1<<endl;
+//     // pointer may point to some other variable, because ptr1 is not constant
+//     int c=30;
+//     ptr1=&c;
+//     cout<<"c="<<c<<" "<<"ptr1 points to c: "<<*ptr1<<endl;
+//     c=300; //Okay, because c is not constant
+//     cout<<"c="<<c<<" "<<"ptr1 points to c: "<<*ptr1<<endl;
+//     //Error: ptr1 points to constant data(c), which cannot be changed
+//     // *ptr1=300;
+// }
+
+
 #include<iostream>
 using namespace std;
 int main()
 {
-    const int a=10; //a is integer constant
-    int b=20;
-    const int* ptr1=&b; //ptr1 is not constant, it points to constant data
-    // a is constant and cannot be changed
-    // a=100;
-    cout<<"a="<<a<<endl;
-    // ptr1 points to constant data(b) and cannot be changed
-    // *ptr1=200;
-    cout<<"b="<<b<<" "<<"ptr1 points to b: "<<*ptr1<<endl;
-    // b is not constant, therefore can be changed
-    b=200;
-    cout<<"b="<<b<<" "<<"ptr1 points to b: "<<*ptr1<<endl;
-    // pointer may point to some other variable, because ptr1 is not constant
-    int c=30;
-    ptr1=&c;
-    cout<<"c="<<c<<" "<<"ptr1 points to c: "<<*ptr1<<endl;
-    c=300; //Okay, because c is not constant
-    cout<<"c="<<c<<" "<<"ptr1 points to c: "<<*ptr1<<endl;
-    //Error: ptr1 points to constant data(c), which cannot be changed
-    // *ptr1=300;
+    int m = 4, n = 5;
+    // Error
+    // int * const p;
+    int * const p = &n; //p is a constant pointer pointing to n
+    cout<<"n="<<n<<" p points to n: "<<*p<<endl;
+    // Error: p cannot refer to any other variable
+    // p=&m;
+    n=50;
+    cout<<"n="<<n<<" p points to n: "<<*p<<endl;
+    *p=500;
+    cout<<"n="<<n<<" p points to n: "<<*p<<endl;
 }
