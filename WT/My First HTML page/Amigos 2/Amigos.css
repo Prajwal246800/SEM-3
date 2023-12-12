@@ -1,0 +1,82 @@
+body,h1,button{
+    margin: 0px;
+    padding: 0px;
+}
+marquee{
+    margin-left: 60px;
+}
+body>h1 {
+    background-color: black;
+    color: white;
+    padding: 10px 0px 10px 0px;
+    position: fixed;
+    top: 0px;
+    width: 100vw;
+    z-index: 2;
+}
+.nav {
+    background-color: rgb(48, 57, 64);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    left: -250px;
+    transition-duration: 0.5s;
+    margin-top: 15px;
+}
+button {
+    background-color: transparent;
+    border: 0;
+    padding: 10px 80px 10px 80px;
+    margin: 10px 10px 10px 10px;
+    border-radius: 20px;
+    color: whitesmoke;
+}
+button:hover{
+    background-color: red;
+    transition-duration: 1s;
+}
+.Content {
+    margin-top: 50px;
+    transition-duration: 0.5s;
+    padding: 20px 20px 20px 20px;
+}
+.MembersContent,.GalleryContent,.ContactContent{
+    margin-top: 20px;
+    display: none;
+}
+.MenuIcon{
+    position: fixed;
+    top:20px;
+    left:5px;
+    color: white;
+    border-radius: 20px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+}
+.MenuIcon:hover{
+    transition-duration: 1s;
+    background-color: white;
+    color: black;
+}
+footer{
+    background-color: black;
+    color: rgb(240, 238, 238);
+    padding: 10px;
+    text-align: center;
+}
+img{
+    width: 300px;
+    height: 300px;
+    padding: 10px;
+    border-radius: 25px;
+}
+img:hover{
+    scale: 110%;
+}

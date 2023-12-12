@@ -1,0 +1,79 @@
+body,h1,p,nav,main{
+    margin: 0px;
+    padding: 0px;
+}
+header h1{
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 5px;
+}
+nav{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: rgb(38, 34, 34);
+}
+nav a{
+    padding: 10px;
+    text-decoration: none;
+    color: rgb(232, 205, 171);
+    margin:0px 10px 0px 10px;
+    border-radius: 20px;
+}
+nav a:hover{
+    transition-duration: 1s;
+    background-color: red;
+}
+.parent{
+    position: absolute;
+}
+main{
+    display:block;
+    padding: 10px 20px 50px 30px;
+}
+.members_content{
+    display: none;
+    padding: 10px 20px 50px 30px;
+    position: relative;
+}
+
+.photos_content{
+    display: none;
+    padding: 10px 20px 50px 30px;
+    position: relative;
+}
+img{
+    width: 300px;
+    height: 300px;
+    padding: 10px;
+    border-radius: 25px;
+}
+.photos_content img:hover{
+    scale: 110%;
+}
+
+.Contact_Us_content{
+    display: none;
+    padding: 10px 20px 50px 30px;
+    position: relative;
+
+}
+
+footer{
+    background-color: black;
+    color: rgb(240, 238, 238);
+    padding: 10px;
+    text-align: center;
+}
+
+button{
+    border-radius: 20px;
+    padding: 10px 10px;
+    background-color: rgb(209, 119, 208);
+    margin:10px 0px 10px 0px;
+}
+button:hover{
+    background-color: rgb(107, 180, 195);
+    transition-duration: 1s;
+}
