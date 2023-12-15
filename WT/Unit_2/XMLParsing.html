@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <body>
+        <h1>XML Parsing Example</h1>
+        <p id="demo">Student Name: </p>
+        <script>
+            var text = "<studentdetails><student>" +
+                "<name>John</name>" +
+                "<subject>Web</subject>" +
+                "</studentdetails></student>";
+            console.log("Text = " + text);
+
+            var parser = new DOMParser();
+            console.log("XML Parser = " + parser);
+
+            var xmldoc = parser.parseFromString(text, "text/xml");
+            console.log("xmldoc = " + xmldoc.childNodes.nodeValue);
+
+            var studentName = xmldoc.getElementsByTagName("name")[0].childNodes[0].nodeValue;
+            document.getElementById("demo").innerHTML = "Student Name: " + studentName;
+            console.log("studentName = " + studentName);
+
+        </script>
+    </body>
+</html>

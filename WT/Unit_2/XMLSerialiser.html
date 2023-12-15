@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<body>
+    <h1>XML Serialization Example</h1>
+    <button onclick="serializeXML()">Serialize XML</button>
+    <p id="serializedXML"></p>
+    <script>
+        function serializeXML()
+        {
+            var xmlDoc = document.implementation.createDocument("", "", null);
+            var studentDetails = xmlDoc.createElement("studentdetails");
+            var student = xmlDoc.createElement("student");
+            var name = xmlDoc.createElement("name");
+            var subject = xmlDoc.createElement("subject");
+
+            name.appendChild(xmlDoc.createTextNode("John"));
+            subject.appendChild(xmlDoc.createTextNode("Web"));
+
+            student.appendChild(name);
+            student.appendChild(subject);
+            studentDetails.appendChild(student);
+            xmlDoc.appendChild(studentDetails);
+            console.log("xmlDoc = " + xmlDoc);
+
+            var serializer = new XMLSerializer();
+            console.log("serializer = " + serializer);
+            var xmlString = serializer.serializeToString(xmlDoc);
+            console.log("xmlString = " + xmlString);
+
+            document.getElementById("serializedXML").innerHTML = "<pre>" + xmlString + "</pre>";
+        }
+    </script>
+
+</body>
+
+</html>
+
+
+
+<!--
+    var xmlDoc = document.implementation.createDocument("", "", null);
+    This line of code creates an XML document using JavaScript's Document Object Model (DOM) methods.
+        document.implementation: This property provides access to the methods for creating and managing an XML document.
+        It's a part of the Document Object Model and represents the interface to the current document's implementation.
+        .createDocument("", "root", null): This method, accessed through document.implementation,
+            creates an XML document with specific parameters:
+            "" (namespaceURI): In this case, an empty string is used as the namespaceURI parameter,
+                which indicates there's no specific namespace for the document.
+            "root" (qualifiedName): This parameter specifies the name of the root element of the XML document.
+                Here, the root element is named "root".
+            null (doctype): The doctype parameter is set to null, which means there is no Document Type Declaration (DTD) or schema declaration associated with this document.
+-->
