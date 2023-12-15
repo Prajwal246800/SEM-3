@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="demo">Hello! </h1>
+    <button onclick="clicked()">click me</button>
+
+    <script>
+        prompt("Welcome To My Web Page");
+        function clicked(){
+            document.getElementById("demo").innerText += "Welcome to My Web Page";
+        }
+
+        const h1 = document.getElementById("demo");
+        h1.addEventListener("click",function(){
+            alert("You Clicked Me");
+        })
+
+    </script>
+</body>
+</html>
+
+
+<!-- x = 10;
+x += 2; // x = x + 2;
+x = 12; -->

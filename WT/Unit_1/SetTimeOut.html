@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <h1>setTimeout and setInterval Example</h1>
+
+    <script>
+        function sayHello()
+        {
+            alert("Hello ");
+        }
+        let intervalID = setTimeout(sayHello, 3000);
+
+
+
+        // function sayHi()
+        // {
+        //     alert("Hello");
+        // }
+        // let intervalID = setInterval(sayHi, 2000);
+
+        setTimeout(() => {
+            clearTimeout(intervalID);
+        }, 4000);   
+    </script>
+
+</body>
+
+</html>
