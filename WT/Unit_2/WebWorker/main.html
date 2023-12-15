@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Web Worker Example</h1>
+    <button onclick="startWorker()">Start Worker</button>
+    <p>Result: <span id="result"></span></p>
+
+    <script>
+        let worker;
+        function startWorker()
+        {
+            worker = new Worker("worker.js");
+            
+            worker.onmessage = function (event) {
+                document.getElementById("result").innerHTML = event.data;
+            };
+            worker.postMessage("start");
+        }
+    </script>
+</body>
+
+</html>
