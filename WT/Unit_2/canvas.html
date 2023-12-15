@@ -86,10 +86,10 @@
         var ctx = can.getContext('2d');
         var grd = ctx.createLinearGradient(100,100,0,0);
         grd.addColorStop(0, "blue");
-        grd.addColorStop(1, "red");
         grd.addColorStop(0.25,"green");
         grd.addColorStop(0.5,"gold");
         grd.addColorStop(0.75,"grey");
+        grd.addColorStop(1, "red");
         ctx.fillStyle = grd;
         ctx.fillRect(0,0,100,100);
 
@@ -98,10 +98,10 @@
         var ctx = can.getContext('2d');
         var grd = ctx.createRadialGradient(50,50,10,50,50,50);
         grd.addColorStop(0, "blue");
-        grd.addColorStop(1, "red");
         grd.addColorStop(0.25,"green");
         grd.addColorStop(0.5,"gold");
         grd.addColorStop(0.75,"grey");
+        grd.addColorStop(1, "red");
         ctx.fillStyle=grd;
         ctx.fillRect(0,0,100,100);
 
