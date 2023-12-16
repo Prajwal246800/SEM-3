@@ -10,10 +10,15 @@
         function startWorker()
         {
             worker = new Worker("worker.js");
-            
-            worker.onmessage = function (event) {
+
+            // worker.onmessage = function (event) {
+            //     document.getElementById("result").innerHTML = event.data;
+            // };
+
+            worker.addEventListener("message",function(event) {
                 document.getElementById("result").innerHTML = event.data;
-            };
+            });
+
             worker.postMessage("start");
         }
     </script>
