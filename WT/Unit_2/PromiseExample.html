@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <h1>Promise Example</h1>
+    <button id="loadDataBtn">Load Data</button>
+    <div id="dataContainer"></div>
+    <script>
+        function fetchData() {
+            return new Promise(function (resolve, reject) {
+                setTimeout(function () {
+                    const data = { message: "Data loaded successfully!" };
+                    resolve(data);
+                }, 2000);
+            });
+        }
+
+        document.getElementById('loadDataBtn').addEventListener('click', function () {
+            fetchData()
+                .then(function (data)
+                {
+                    document.getElementById('dataContainer').innerText = data.message;
+                })
+                .catch(function (error)
+                {
+                    document.getElementById('dataContainer').innerText = "Error: " + error.message;
+                });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+<!-- 
+    resolve is a function provided by the Promise constructor.
+    When invoked, it signals that the asynchronous task,
+    represented by the Promise, has been successfully completed and provides the resolved data.
+
+    data is the value that the Promise resolves with.
+    In this case, it's an object containing a message property.
+
+    For instance, after performing an asynchronous task (like fetching data from an API or simulating a delay),
+    resolve(data) is called to fulfill the Promise with the intended data.
+
+    Once resolved, the .then() block associated with the Promise will execute,
+    receiving the resolved data as an argument,
+    allowing you to handle the successful outcome of the asynchronous operation.
+-->
