@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script>
+            function loadData(method)
+            {
+                var xhr = new XMLHttpRequest();
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4)
+                    {
+                        if (xhr.status === 200)
+                        {
+                            document.getElementById("result").innerHTML = xhr.responseText;
+                        }
+                        else
+                        {
+                            document.getElementById("result").innerHTML = "Error: " + xhr.status;
+                        }
+                    }
+                };
+
+                xhr.open(method, "https://jsonplaceholder.typicode.com/posts", true);
+                xhr.send();
+            }
+        </script>
+    </head>
+    <body>
+        <h1>AJAX Example</h1>
+        <button onclick="loadData('GET')">Load Data with GET</button>
+        <button onclick="loadData('POST')">Load Data with POST</button>
+        <div id="result"></div>
+    </body>
+</html>
+
+
+
+
+<!-- 
+    The readyState property represents the state of the XMLHttpRequest.
+    When readyState is equal to 4,
+    it means the operation (the request) has been completed,
+    and the response data is available.
+
+    Status Code 200 (OK): 
+        This status code signifies that the request was successful.
+        It's the standard response for successful HTTP requests,
+        indicating that the server has fulfilled the request.
+
+    Status Code 201 (Created):
+        This status code indicates that a request has been fulfilled,
+        and as a result, a new resource has been created on the server.
+        It's often used in response to POST requests when a new resource,
+        like a new entry in a database, has been successfully created.
+-->
