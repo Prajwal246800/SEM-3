@@ -1,26 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $("button").click(function(){
-                $("p").toggle();
+    <head>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <style>
+            .hidden
+            {
+                display: none;
+            }
+            #toggleButton
+            {
+                padding: 10px;
+                background-color: #3498db;
+                color: #fff;
+                cursor: pointer;
+            }
+            .box
+            {
+                width: 100px;
+                height: 100px;
+                background-color: #f1c40f;
+                margin: 10px;
+                text-align: center;
+                line-height: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <button id="toggleButton">Toggle Boxes</button>
+        <div class="box">Box 1</div>
+        <div class="box">Box 2</div>
+        <div class="box">Box 3</div>
+        <script>
+            $(document).ready(function () {
+                $('.box').click(function () {
+                    $(this).toggle('slow');
+                });
+
+                $('#toggleButton').click(function () {
+                    $('.box').toggle('fast');
+                });
             });
-        });
-    </script>
-</head>
-<body>
-    <p>Paragraph 1</p>
-    <p>Hello World</p>
-    <button>Click me</button>
-    <style>
-        .p1{
-            background-color: red;
-        }
-    </style>
-</body>
+            $('#toggleButton').fadeOut(2000).fadeIn(2000).css('color', 'white');
+        </script>
+    </body>
 </html>
