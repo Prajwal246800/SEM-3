@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            // jQuery AJAX: Load method
+            $(document).ready(function () {
+                $("#loadContentBtn").click(function () {
+                    $("#content").load("example.txt", function (responseTxt, statusTxt, xhr) {
+                        if (statusTxt === "success")
+                            alert("External content loaded successfully!");
+                        if (statusTxt === "error")
+                            alert("Error: " + xhr.status + ": " + xhr.statusText);
+                    });
+                });
+
+                // jQuery AJAX: $.get() method
+                $("#getDataBtn").click(function () {
+                    $.get("example.json", function (data, status) {
+                        alert("Data: " + JSON.stringify(data) + "\nStatus: " + status);
+                    });
+                });
+
+                // jQuery AJAX: $.post() method
+                $("#postDataBtn").click(function () {
+                    $.post("example.php",
+                        {
+                            name: "John Doe",
+                            city: "New York"
+                        },
+                        function (data, status) {
+                            alert("Data: " + JSON.stringify(data) + "\nStatus: " + status);
+                        },
+                        "json"
+                    ).fail(function (xhr, status, error) {
+                        alert("Error: " + error + "\nStatus: " + xhr.status + " " + xhr.statusText);
+                    });
+                });
+
+                // jQuery AJAX: $.ajax() method
+                $("#ajaxBtn").click(function () {
+                    $.ajax({
+                        url: "https://jsonplaceholder.typicode.com/posts",
+                        type: "GET",
+                        dataType: "json",
+                        success: function (result) {
+                            alert("Received JSON data: " + JSON.stringify(result));
+                        },
+                        error: function (xhr, status, error) {
+                            alert("Error: " + error);
+                        }
+                    });
+                });
+
+                // Fetch API
+                document.getElementById("fetchBtn").addEventListener("click", function () {
+                    fetch("example.txt")
+                        .then(response => {
+                            if (response.ok)
+                                return response.text();
+                            throw new Error("Network response was not ok.");
+                        })
+                        .then(data => {
+                            console.log(data);
+                            alert("Fetched Text: " + data);
+                        })
+                        .catch(error => {
+                            console.error('Fetch error:', error);
+                            alert("Fetch error: " + error.message);
+                        });
+                });
+            });
+        </script>
+    </head>
+
+    <body>
+        <h1>AJAX and Fetch Example</h1>
+
+        <!-- Load Method -->
+        <button id="loadContentBtn">Load Content</button>
+        <div id="content"></div>
+
+        <!-- $.get() Method -->
+        <button id="getDataBtn">Get Data</button>
+
+        <!-- $.post() Method -->
+        <button id="postDataBtn">Post Data</button>
+
+        <!-- $.ajax() Method -->
+        <button id="ajaxBtn">AJAX Request</button>
+
+        <!-- Fetch API -->
+        <button id="fetchBtn">Fetch Data</button>
+    </body>
+</html>
