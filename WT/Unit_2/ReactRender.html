@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <script crossdomain src="https://unpkg.com/react@16/umd/react.development.js"> </script>
+        <script crossdomain src="https://unpkg.com/react-dom@16/umd/reactdom.development.js"> </script>
+        <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="contents"></div><!-- this is where our component will appear -->
+        <script type="text/babel"> // Important
+            var contentNode = document.getElementById('contents');
+            var component = <h1>Hello World!</h1>; // A simple JSX component
+            ReactDOM.render(component, contentNode);
+            // Render the component inside the content Node
+        </script>
+    </body>
+</html>
