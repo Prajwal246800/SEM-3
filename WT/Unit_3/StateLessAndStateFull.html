@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>React Stateful and Stateless Components</title>
+        <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            // Stateful component
+            class StatefulComponent extends React.Component {
+                constructor(props) {
+                    super(props);
+                    this.state = {
+                        count: 0
+                    };
+                }
+                incrementCount = () => {
+                    this.setState(prevState => ({
+                        count: prevState.count + 1
+                    }));
+                }
+                render() {
+                    return (
+                        <div>
+                            <h2>Stateful Component</h2>
+                            <p>Count: {this.state.count}</p>
+                            <button onClick={this.incrementCount}>Increment</button>
+                        </div>
+                    );
+                }
+            }
+
+            // Stateless component
+            const StatelessComponent = () => {
+                return (
+                    <div>
+                        <h2>Stateless Component</h2>
+                        <p>This is a stateless component. It doesn't manage its own state.</p>
+                    </div>
+                );
+            }
+
+            ReactDOM.render(
+                <div>
+                    <StatefulComponent />
+                    <StatelessComponent />
+                </div>,
+                document.getElementById('root')
+            );
+        </script>
+    </body>
+</html>
