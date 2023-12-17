@@ -11,6 +11,8 @@
                     const data = { message: "Data loaded successfully!" };
                     resolve(data);
                 }, 2000);
+                const data = { message: "Something Went Wrong!" };
+                reject(data);
             });
         }
 

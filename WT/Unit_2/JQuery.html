@@ -33,7 +33,9 @@
         <script>
             $(document).ready(function () {
                 $('.box').click(function () {
-                    $(this).toggle('slow');
+                    $(this).toggle('slow', () => {
+                        alert("Congratulations, it works!");
+                        });
                 });
 
                 $('#toggleButton').click(function () {
